@@ -51,6 +51,7 @@ program day1
    integer :: leftlist(max_lines), rightlist(max_lines)
    integer :: i, j, ios, sum
    logical :: eof
+   integer :: similarity_score, target_number
 
    ! read the input
    open(UNIT=unit_number, FILE='./../input/day1.txt', STATUS='OLD', ACTION='READ') ! UNIT assigns a unique integer to the file for subsequent operations
@@ -63,9 +64,6 @@ program day1
       if (ios == -1) then
          eof = .true.
          i = i - 1  ! Adjust index to fit the actual number of read items
-      elseif (ios /= 0) then
-         print*, 'Error reading data on line', i
-         stop
       end if
    end do
 
@@ -80,5 +78,14 @@ program day1
    end do
 
    print*, 'The sum of the absolute differences is:', sum
+
+   ! 2nd part
+   similarity_score = 0
+
+   do j = 1, i
+      target_number = leftlist(j)
+      similarity_score = similarity_score + target_number * count(rightlist(1:i) == target_number)
+   end do
+   print*, 'The similarity score is:', similarity_score
 
 end program
