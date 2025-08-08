@@ -41,5 +41,6 @@
 *.dwo
 
 # input and output files
-output/
-input/
+output/*
+*.txt
+!.gitkeep
