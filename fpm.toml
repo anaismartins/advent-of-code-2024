@@ -1,0 +1,26 @@
+name = "advent-of-code-2024"
+version = "0.1.0"
+license = "license"
+author = "Ana Martins"
+maintainer = "a.i.s.martins@astro.uio.no"
+copyright = "Copyright 2025, Ana Martins"
+[build]
+auto-executables = true
+auto-tests = true
+auto-examples = true
+module-naming = false
+[install]
+library = false
+test = false
+[fortran]
+implicit-typing = false
+implicit-external = false
+source-form = "free"
+
+[dependencies]
+forgex = {git = "https://github.com/shinobuamasaki/forgex"}
+
+[[executable]]
+name = "day3"
+source-dir = "src"
+main = "day3.f90"
